@@ -40,16 +40,18 @@ _Las siguientes instrucciones deben ejecutarse desde la línea de comandos, usan
 
 En la carpeta que se desea que tenga el repositorio (es decir, que tenga el repositorio como subcarpeta), ejecutar:
 
-* Con SsH:
+* Usando SSH:
 ```bash
 git clone git@github.com:jotadeaa/react-23307-elchavodel8.git
 cd react-23307-elchavodel8
+git fetch
 git checkout main
 ```
 
-* Con HTTPS:
+* Usando HTTPS:
 ```bash
 git clone https://github.com/jotadeaa/react-23307-elchavodel8.git
 cd react-23307-elchavodel8
+git fetch
 git checkout main
 ```
