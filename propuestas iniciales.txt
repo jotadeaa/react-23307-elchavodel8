@@ -1,0 +1,15 @@
+PROPUESTAS INICIALES.
+PROYECTO TRABAJO INTEGRADOR GRUPO 8 - "EL CHAVO DEL 8".
+
+MINUTA REUNIÓN 25/05/2023 INICIO 16:10 FIN: 16:50
+
+1.Frontend - se va a usar Boostrap y CSS.
+2.Pedir la base de datos excel a la compañera para subirlo como archivo .JSON a Firebase/ FireStore.
+3.Hacer estructura de la aplicación similar al proyecto de peliculas de la clase.
+4.Login y password en React.JS - ver si este tema esta cubierto por el contenido del curso, se consultará al profesor Gabriel en la clase del martes 30/05/23.
+5.Ir avanzando con propuestas y aportes (códigos o pseudocódigos).
+6.Mejorar conocimientos en React.JS; HTML;JavaSCRIPT.
+7.Usaremos el WhatsApp como canal de comunicación rápido y cotidiano, el canal Discord será para la reuniones formales y de trabajo.
+8.Preparar planificación de reuniones, para ir eventualmente teniendo un cronograma de dìas y horas de actividad.
+
+**Próxima reunión martes 30/05/2023 - 18:00 hrs - EN DISCORD**
