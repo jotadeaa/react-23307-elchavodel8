@@ -19,7 +19,8 @@ mkdir %USERPROFILE%\.ssh
 4. Una vez generada la clave, hacer click en el botón "Save Private key" y guardarla en la carpeta `.ssh` creada en el paso 1 con el nombre `id_rsa.ppk`. Si no se especificó passsphrase, se mostrará un mensaje de advertencia; ignorarlo clickeando en "Yes".
 5. A continuación, debe exportarse la clave privada a formato OpenSSH para que pueda ser usada por Git. Para ello, abrir el menú "Conversions" y seleccionar la opción "Export OpenSSH key". Nuevamente se mostrará el mensaje de advertencia; ignorarlo y guardar la clave en la carpeta `.ssh` como `id_rsa` (sin extensión de archivo).
 6. Copiar el texto que aparece en el recuadro "Public key for pasting into authorized_keys file" (click derecho > Seleccionar todo, click derecho > Copiar), y guardarlo en la carpeta `.ssh` como `id_rsa.pub`.
-7. Por último, hay que agregar la clave pública a GitLab. Para ello, [loguearse en el sitio](https://rx173.cajval.sba.com.ar/users/sign_in) y luego ir a la URL <https://rx173.cajval.sba.com.ar/profile/keys>. En el recuadro "Key" copiar el contenido del archivo `id_rsa.pub` generado en el paso anterior y hacer click en el botón "Add key".
+7. Por último, hay que agregar la clave pública a GitHub. Para ello, [loguearse en el sitio](https://github.com/login) y luego ir a la URL <https://github.com/settings/keys>. Hacer click en en botón "New SSH key", y en el recuadro "Key" copiar el contenido del archivo `id_rsa.pub` generado en el paso anterior.
+Hacer click en el botón "Add SSH key" para agregar la clave.
 
 &nbsp;
 
