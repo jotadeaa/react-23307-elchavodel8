@@ -30,7 +30,7 @@ _Las siguientes instrucciones deben ejecutarse desde la línea de comandos, usan
 
 ```bash
 git config --global user.name 'Nombre Apellido'
-git config --global user.email 'email@dominio.sba.com.ar'
+git config --global user.email 'email@dominio'
 ```
 
 &nbsp;
