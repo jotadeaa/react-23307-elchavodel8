@@ -13,3 +13,10 @@ MINUTA REUNIÓN 25/05/2023 INICIO 16:10 FIN: 16:50
 8.Preparar planificación de reuniones, para ir eventualmente teniendo un cronograma de dìas y horas de actividad.
 
 **Próxima reunión martes 30/05/2023 - 18:00 hrs - EN DISCORD**
+
+
+Reunion Jueves 6/8
+
+* Pantalla Principal (despues del login) que muestre todos los efectores (centros de salud). Al acceder a cada efector se muestra la lista de todos los equipamientos.
+* Funciones para implementar: filtros y/o buscador. Formulario para agregar equipamientos. Modificacion del detalle de equipamiento.
+* A la estructura de la tabla le vamos a agregar una columna correspondiente al efector. En la pestania "Todo" estaria toda la informacion con la que deberiamos trabajar.
