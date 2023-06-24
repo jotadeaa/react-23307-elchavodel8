@@ -1,0 +1,15 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+  margin-top: 2rem;
+}
+
+input[type="text"] {
+  margin-right: 1rem;
+}
+
+button {
+  margin-right: 1rem;
+}
