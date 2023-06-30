@@ -1,14 +1,5 @@
 {
-  "name": "proyecto-final-react.js",
-  "version": "1.0.0",
-  "description": "propuesta_proyecto_final",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Edgar Patiño",
-  "license": "ISC",
   "dependencies": {
-    "react-router-dom": "^6.14.0"
+    "axios": "^1.4.0"
   }
 }
