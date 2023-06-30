@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebaseConfig/firebase";
 import { Button, Table } from "react-bootstrap";
@@ -8,7 +7,7 @@ import Swal from "sweetalert2";
 import { Buscador } from "./Buscador";
 
 export const Show = () => {
-    
+  // --------------------------- Fer
   // (fer) utilizamos el hook useLocation para tomar lo que viene por params del buscador
     const useQuery = () => {
        return new URLSearchParams(useLocation().search);
@@ -18,10 +17,9 @@ export const Show = () => {
     
     }
     //const location = useLocation()
-    
+    // --------------------------- Fer
   
-  
-
+    // ----------------- Nico
     // Configuro los hooks
     const [equipments, setEquipments] = useState([]);
     // Obtengo los documentos de la db de firestore
@@ -35,18 +33,19 @@ export const Show = () => {
                 id: doc.id
             })));
     };
+    // ----------------- Nico
 
 
-
-
+    // --------------------------- Fer
     // (fer) función para mostrar un sólo doc 
-const getEquipment = async (id) => {
- const equipment = await getDoc(await doc(db, "medicalSupplies", id));
+  const getEquipment = async (id) => {
+  const equipment = await getDoc(await doc(db, "medicalSupplies", id));
     };
-    
-
+    // --------------------------- Fer
   
 
+    // --------------------------- Nico
+    const navigate = useNavigate();
     // Cuatro: crear función para eliminar un doc
     const removeEquipment = async (id) => {
         const equipmentDoc = doc(db, "medicalSupplies", id);
@@ -72,7 +71,7 @@ const getEquipment = async (id) => {
                 '¡Eliminado!',
                 'El equipo médico se ha eliminado.',
                 'success'
-              )
+              ).then(() => {location.reload()});              
             }
           })
     };
