@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebaseConfig/firebase";
 import { Button, Table } from "react-bootstrap";
@@ -19,6 +19,7 @@ export const Show = () => {
                 id: doc.id
             })));
     };
+    const navigate = useNavigate();
     // Cuatro: crear función para eliminar un doc
     const removeEquipment = async (id) => {
         const equipmentDoc = doc(db, "medicalSupplies", id);
@@ -44,7 +45,7 @@ export const Show = () => {
                 '¡Eliminado!',
                 'El equipo médico se ha eliminado.',
                 'success'
-              )
+              ).then(() => {location.reload()});              
             }
           })
     };
