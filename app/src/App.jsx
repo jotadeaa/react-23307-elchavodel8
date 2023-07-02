@@ -17,7 +17,7 @@ function App() {
           </article>
         </header>
         <main>
-          <h2 className='text-center mt-3'>Tabla de datos de equipos médicos</h2>
+          <h2 className='text-center mt-3'>Datos de equipos médicos</h2>
         <Routes>
           <Route path="/" element={ <Show /> }/>
           <Route path="/create" element={ <Create /> }/>

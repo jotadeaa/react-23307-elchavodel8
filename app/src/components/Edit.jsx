@@ -4,6 +4,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { db } from '../firebaseConfig/firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2';
+import { Loading } from './Loading';
 
 export const Edit = () => {
     const [nombre, setNombre] = useState("");
@@ -82,7 +83,9 @@ export const Edit = () => {
 
     if (!nombre || !marca || !modelo || !estado || cantidad == 0 || antiguedad == 0){
         return (
-            <div className='text-center'>Loading...</div>
+            <>
+                <Loading />
+            </>
         )
     }
     return (

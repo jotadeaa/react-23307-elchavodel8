@@ -5,6 +5,7 @@ import { db } from "../firebaseConfig/firebase";
 import { Button, Table } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { Buscador } from "./Buscador";
+import { Loading } from "./Loading";
 
 export const Show = () => {
   // (fer) utilizamos el hook useLocation para tomar lo que viene por params del buscador
@@ -70,7 +71,9 @@ export const Show = () => {
     // Siete: devolver el estado de los docs
     if (equipments.length === 0){
         return (
-            <div className="text-center">Loading...</div>
+            <>
+              <Loading />
+            </>
         )
     }
     return <>

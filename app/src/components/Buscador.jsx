@@ -3,18 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Buscador.css"
 
-
 export const Buscador = () => {
-    const navigate = useNavigate();
-    // función que capture lo que ingresamos en el buscador y lo envia a la URL
-
+    const navigate = useNavigate();    
     const [searchText, setSearchText] = useState("");
-
+    
+    // Función que capture lo que ingresamos en el buscador y lo envia a la URL
     const handleSubmit = (e) => {
         e.preventDefault();
         navigate(`/equipo/${searchText}`);
     }
-
     return (
         <form className="buscadorContainer" onSubmit={handleSubmit}>
             <div className="buscadorBox">
