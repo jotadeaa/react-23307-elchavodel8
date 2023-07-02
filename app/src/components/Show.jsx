@@ -7,19 +7,13 @@ import Swal from "sweetalert2";
 import { Buscador } from "./Buscador";
 
 export const Show = () => {
-  // --------------------------- Fer
   // (fer) utilizamos el hook useLocation para tomar lo que viene por params del buscador
     const useQuery = () => {
        return new URLSearchParams(useLocation().search);
-
         const query = useQuery()
-        const search = query.get("search");
-    
+        const search = query.get("search");    
     }
-    //const location = useLocation()
-    // --------------------------- Fer
-  
-    // ----------------- Nico
+ 
     // Configuro los hooks
     const [equipments, setEquipments] = useState([]);
     // Obtengo los documentos de la db de firestore
@@ -33,18 +27,12 @@ export const Show = () => {
                 id: doc.id
             })));
     };
-    // ----------------- Nico
 
-
-    // --------------------------- Fer
     // (fer) función para mostrar un sólo doc 
-  const getEquipment = async (id) => {
-  const equipment = await getDoc(await doc(db, "medicalSupplies", id));
-    };
-    // --------------------------- Fer
-  
+    const getEquipment = async (id) => {
+      const equipment = await getDoc(await doc(db, "medicalSupplies", id));
+    };  
 
-    // --------------------------- Nico
     const navigate = useNavigate();
     // Cuatro: crear función para eliminar un doc
     const removeEquipment = async (id) => {
@@ -86,7 +74,20 @@ export const Show = () => {
         )
     }
     return <>
-        <Buscador />
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <Buscador />
+            </div>
+            <div className="col">
+              <Link to="/create">
+                <Button variant="success" className="mt-2 mb-2">
+                  Agregar
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
         <div className="container-fluid" id="contenedorTabla">
           <Table bordered hover responsive id="tablaEquipamentos">
             <thead>
@@ -160,11 +161,6 @@ export const Show = () => {
               ))}
             </tbody>
           </Table>
-          <Link to="/create">
-            <Button variant="success" className="mt-2 mb-2">
-              Agregar
-            </Button>
-          </Link>
         </div>
       </>
     ;

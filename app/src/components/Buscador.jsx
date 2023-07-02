@@ -5,15 +5,14 @@ import "./Buscador.css"
 
 
 export const Buscador = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     // función que capture lo que ingresamos en el buscador y lo envia a la URL
 
-    const [searchText, setSearchText] = ("")
+    const [searchText, setSearchText] = useState("");
 
     const handleSubmit = (e) => {
-        e.preventDefault();   
-        navigate(`/search=${searchText}`);
-
+        e.preventDefault();
+        navigate(`/equipo/${searchText}`);
     }
 
     return (

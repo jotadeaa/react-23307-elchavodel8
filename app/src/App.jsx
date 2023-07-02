@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Show } from './components/show';
-import { Create } from './components/create';
-import { Edit } from './components/edit';
+import { Equip } from './components/Equip';
+import { Show } from './components/Show';
+import { Create } from './components/Create';
+import { Edit } from './components/Edit';
 import logoCaC1 from './assets/logoCaC1.png';
 import './App.css';
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={ <Show /> }/>
           <Route path="/create" element={ <Create /> }/>
           <Route path="/edit/:equipmentId" element={ <Edit /> }/>
+          <Route path="/equipo/:nombre" element={ <Equip /> }/>
         </Routes>
         </main>
         <footer className='bg-dark'>
