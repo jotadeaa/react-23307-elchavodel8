@@ -1,10 +1,11 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Show } from './components/Show';
 import { Create } from './components/create';
 import { Edit } from './components/edit';
 import logoCaC1 from './assets/logoCaC1.png';
 import './App.css';
 import { Equip } from './components/Equip';
+
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
           </article>
         </header>
         <main>
-          <h2 className='text-center mt-3'>Tabla de datos de equipos médicos</h2>
+          <Link to= "/">
+            <h2 className='text-center mt-3'>Tabla de datos de equipos médicos</h2>
+          </Link>
         <Routes>
           <Route path="/" element={ <Show /> }/>
           <Route path="/create" element={ <Create /> }/>

@@ -85,8 +85,23 @@ export const Show = () => {
             <div className="text-center">Loading...</div>
         )
     }
-    return <>
-        <Buscador />
+    return (
+      <>
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <Buscador />
+            </div>
+            <div className="col">
+              <Link to="/create">
+                <Button variant="success" className="mt-2 mb-2">
+                  Agregar
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
         <div className="container-fluid" id="contenedorTabla">
           <Table bordered hover responsive id="tablaEquipamentos">
             <thead>
@@ -160,12 +175,7 @@ export const Show = () => {
               ))}
             </tbody>
           </Table>
-          <Link to="/create">
-            <Button variant="success" className="mt-2 mb-2">
-              Agregar
-            </Button>
-          </Link>
         </div>
       </>
-    ;
+    );
 }
