@@ -54,3 +54,8 @@ footer{
   padding-bottom: 4vh;
 }
 
+.container{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
