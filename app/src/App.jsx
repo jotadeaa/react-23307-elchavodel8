@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Show } from './components/show';
+import { Show } from './components/Show';
 import { Create } from './components/create';
 import { Edit } from './components/edit';
 import logoCaC1 from './assets/logoCaC1.png';
 import './App.css';
+import { Equip } from './components/Equip';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={ <Show /> }/>
           <Route path="/create" element={ <Create /> }/>
           <Route path="/edit/:equipmentId" element={ <Edit /> }/>
+          <Route path="/equipo/:nombre" element={ <Equip /> }/>
         </Routes>
         </main>
         <footer className='bg-dark'>

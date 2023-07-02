@@ -16,6 +16,8 @@ export const Edit = () => {
     const navigate = useNavigate();
     const { equipmentId } = useParams();
 
+    console.log(equipmentId);
+
     const updateEquipment = async () => {
         const dataDB = doc(db, "medicalSupplies", equipmentId);
         const data = {
