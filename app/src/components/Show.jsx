@@ -12,7 +12,7 @@ export const Show = () => {
     const useQuery = () => {
        return new URLSearchParams(useLocation().search);
         const query = useQuery()
-        const search = query.get("search");    
+        const search = query.get("search");
     }
  
     // Configuro los hooks
@@ -112,7 +112,9 @@ export const Show = () => {
                   <td className="text-center">{equipment.modelo}</td>
                   <td className="text-center">{equipment.estado}</td>
                   <td className="text-center">{equipment.cantidad}</td>
-                  <td className="text-center">{`${equipment.antiguedad} año(s)`}</td>
+                  <td className="text-center">{equipment.antiguedad === 0 ?
+                  `Nuevo` : (equipment.antiguedad === 1 ? `${equipment.antiguedad} año` :
+                  `${equipment.antiguedad} años`)}</td>
                   <td>
                     <div className="d-flex justify-content-center gap-2">
                       <Link to={`/edit/${equipment.id}`}>

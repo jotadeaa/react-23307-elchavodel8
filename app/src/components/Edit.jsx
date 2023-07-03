@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { db } from '../firebaseConfig/firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
@@ -81,7 +81,7 @@ export const Edit = () => {
         getEquipmentById(equipmentId);
     }, []);
 
-    if (!nombre || !marca || !modelo || !estado || cantidad == 0 || antiguedad == 0){
+    if ((!nombre || !marca || !modelo || !estado || cantidad == 0) && antiguedad == 0){
         return (
             <>
                 <Loading />
