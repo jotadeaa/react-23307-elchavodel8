@@ -100,7 +100,7 @@ export const Show = () => {
                 <th>Modelo</th>
                 <th>Estado</th>
                 <th>Cantidad</th>
-                <th>Antiguedad</th>
+                <th>Antigüedad</th>
                 <th>Acciones</th>
               </tr>
             </thead>
