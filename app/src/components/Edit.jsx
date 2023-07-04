@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { db } from '../firebaseConfig/firebase';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2';
+import { Loading } from './Loading';
 
 export const Edit = () => {
     const [nombre, setNombre] = useState("");
@@ -82,9 +83,11 @@ export const Edit = () => {
         getEquipmentById(equipmentId);
     }, []);
 
-    if (!nombre || !marca || !modelo || !estado || cantidad == 0 || antiguedad == 0){
+    if ((!nombre || !marca || !modelo || !estado || cantidad == 0) && antiguedad == 0){
         return (
-            <div className='text-center'>Loading...</div>
+            <>
+                <Loading />
+            </>
         )
     }
     return (

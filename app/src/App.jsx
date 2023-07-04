@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Equip } from './components/Equip';
 import { Show } from './components/Show';
-import { Create } from './components/create';
-import { Edit } from './components/edit';
+import { Create } from './components/Create';
+import { Edit } from './components/Edit';
 import logoCaC1 from './assets/logoCaC1.png';
 import './App.css';
 import { Equip } from './components/Equip';
@@ -17,7 +18,7 @@ function App() {
           </article>
         </header>
         <main>
-          <h2 className='text-center mt-3'>Tabla de datos de equipos médicos</h2>
+          <h2 className='text-center mt-3'>Datos de equipos médicos</h2>
         <Routes>
           <Route path="/" element={ <Show /> }/>
           <Route path="/create" element={ <Create /> }/>
