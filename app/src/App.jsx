@@ -5,7 +5,6 @@ import { Create } from './components/Create';
 import { Edit } from './components/Edit';
 import logoCaC1 from './assets/logoCaC1.png';
 import './App.css';
-import { Equip } from './components/Equip';
 
 function App() {
   return (
