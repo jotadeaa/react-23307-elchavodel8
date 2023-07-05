@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from './components/Home';
 import { Equip } from './components/Equip';
 import { Show } from './components/Show';
 import { Create } from './components/Create';
 import { Edit } from './components/Edit';
 import logoCaC1 from './assets/logoCaC1.png';
 import './App.css';
+import { Navegacion } from './components/Navegacion';
 
 function App() {
   return (
@@ -15,15 +17,17 @@ function App() {
             <h1>Equipos Médicos</h1>
             <p>Grupo 8 - <span className='fw-semibold fst-italic'>Codo a Codo ~ 2023</span></p>
           </article>
+          <Navegacion/>
         </header>
         <main>
-          <h2 className='text-center mt-3'>Datos de equipos médicos</h2>
-        <Routes>
-          <Route path="/equipos" element={ <Show /> }/>
-          <Route path="/create" element={ <Create /> }/>
-          <Route path="/edit/:equipmentId" element={ <Edit /> }/>
-          <Route path="/equipo/:nombre" element={ <Equip /> }/>
-        </Routes>
+          <h2 className='text-center mt-3 mb-3'>Datos de equipos médicos</h2>
+          <Routes>
+            <Route path="/" element={ <Home /> }/>
+            <Route path="/equipos" element={ <Show /> }/>
+            <Route path="/create" element={ <Create /> }/>
+            <Route path="/edit/:equipmentId" element={ <Edit /> }/>
+            <Route path="/equipo/:nombre" element={ <Equip /> }/>
+          </Routes>
         </main>
         <footer className='bg-dark'>
           <div className='d-flex justify-content-between'>
