@@ -12,14 +12,14 @@ function App() {
       <BrowserRouter>
         <header>
           <article className='header-text'>
-            <h1>Grupo 8</h1>
-            <p>Codo a Codo - 2023</p>
+            <h1>Equipos Médicos</h1>
+            <p>Grupo 8 - <span className='fw-semibold fst-italic'>Codo a Codo ~ 2023</span></p>
           </article>
         </header>
         <main>
           <h2 className='text-center mt-3'>Datos de equipos médicos</h2>
         <Routes>
-          <Route path="/" element={ <Show /> }/>
+          <Route path="/equipos" element={ <Show /> }/>
           <Route path="/create" element={ <Create /> }/>
           <Route path="/edit/:equipmentId" element={ <Edit /> }/>
           <Route path="/equipo/:nombre" element={ <Equip /> }/>
@@ -29,9 +29,9 @@ function App() {
           <div className='d-flex justify-content-between'>
             <div className='d-flex gap-2 flex-row'>
               <img src={logoCaC1} alt="logo cac" width='75px' className='pt-2'/>
-              <p className='mb-0 fs-4 text-white-50 fst-italic pt-2 txtFooterCaC'>Codo a Codo - React</p>
+              <p className='mb-0 fs-4 text-white-50 fst-italic pt-2 txtFooterCaC'>Codo a Codo ~ React</p>
             </div>
-            <p className='mb-0 text-white-50 pt-3 txtFooterCaC'>Grupo 8 CaC React &copy; 2023</p>
+            <p className='mb-0 text-white-50 pt-3 txtFooterCaC'>Grupo 8 ~ CaC React &copy; 2023</p>
           </div>
         </footer>
       </BrowserRouter>

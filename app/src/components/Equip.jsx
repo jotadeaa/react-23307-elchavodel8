@@ -20,9 +20,9 @@ export const Equip = () => {
         const data = await getDocs(equipmentCollection);
         const arrayTemporal = data.docs.map(doc => ({...doc.data(),id:doc.id}));
         const arrayFiltrado = [];
-        const filtro = new RegExp(name);
+        const filtro = new RegExp(name.toLowerCase());
         for (let i = 0; i < arrayTemporal.length; i++){
-            if (filtro.test(arrayTemporal[i].nombre)){
+            if (filtro.test(arrayTemporal[i].nombre.toLowerCase())){
                 arrayFiltrado.push(arrayTemporal[i]);
             }
         }
@@ -42,11 +42,11 @@ export const Equip = () => {
         )
     }
     return sinElementos ? (
-        // Si no encontró elementos el lenght va seguir siendo 0, por eso utilizo la bandera 'sinElementos'
+        // Si no encontró elementos el length va seguir siendo 0, por eso utilizo la bandera 'sinElementos'
         <section className="container-fluid d-flex flex-column align-items-center">
             <p className="fs-2">¡No se ha encontrado el elemento solicitado!</p>
             <img src={notFound} alt="elemento_no_encontrado" className="img-fluid" width="300" />            
-            <Link to="/">                        
+            <Link to="/equipos">                        
                 <Button variant='secondary'>Volver</Button>
             </Link>
         </section>
@@ -132,7 +132,7 @@ export const Equip = () => {
                     </tbody>
                 </Table>
                 <div className="d-flex justify-content-center">
-                    <Link to="/">                        
+                    <Link to="/equipos">                        
                         <Button variant='secondary'>Volver</Button>
                     </Link>
                 </div>

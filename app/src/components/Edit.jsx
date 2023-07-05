@@ -64,7 +64,7 @@ export const Edit = () => {
                         'Modificado.',
                         'El equipo médico ha sido modificado exitosamente.',
                         'success'
-                        ).then(() => {navigate('/')});
+                        ).then(() => {navigate('/equipos')});
                 })
                 .catch((error) => {
                     Swal.fire(
@@ -125,7 +125,7 @@ export const Edit = () => {
                 </div>
                 <div className='d-flex justify-content-evenly mt-4'>
                     <Button variant='success' type="submit">Modificar</Button>
-                    <Link to="/">                        
+                    <Link to="/equipos">                        
                         <Button variant='secondary'>Cancelar</Button>
                     </Link>
                 </div>

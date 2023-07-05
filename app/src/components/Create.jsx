@@ -46,7 +46,7 @@ export const Create = () => {
                         '¡Creado!',
                         `Se ha creado un equipo médico exitosamente.`,
                         'success'
-                    ).then(() => {navigate('/')});
+                    ).then(() => {navigate('/equipos')});
                 })
                 .catch((error) => {
                     Swal.fire(
@@ -89,7 +89,7 @@ export const Create = () => {
                     </Form.Group>
                     <div className='d-flex justify-content-evenly mt-4'>
                         <Button variant='success' type="submit">Crear</Button>
-                        <Link to="/">                        
+                        <Link to="/equipos">                        
                             <Button variant='secondary'>Cancelar</Button>
                         </Link>
                     </div>
