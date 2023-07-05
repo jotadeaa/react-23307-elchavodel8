@@ -5,6 +5,7 @@ import { Create } from './components/Create';
 import { Edit } from './components/Edit';
 import logoCaC1 from './assets/logoCaC1.png';
 import './App.css';
+import { Navegacion } from './components/Navegacion';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <h1>Grupo 8</h1>
             <p>Codo a Codo - 2023</p>
           </article>
+          <Navegacion/>
         </header>
         <main>
           <h2 className='text-center mt-3'>Datos de equipos médicos</h2>
