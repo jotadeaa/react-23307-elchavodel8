@@ -3,6 +3,8 @@ import { Equip } from './components/Equip';
 import { Show } from './components/Show';
 import { Create } from './components/Create';
 import { Edit } from './components/Edit';
+import { Navegacion } from './components/Navegacion';
+import { Home } from './components/Home';
 import logoCaC1 from './assets/logoCaC1.png';
 import './App.css';
 
@@ -10,6 +12,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <Navegacion/>
         <header>
           <article className='header-text'>
             <h1>Equipos Médicos</h1>
@@ -17,8 +20,9 @@ function App() {
           </article>
         </header>
         <main>
-          <h2 className='text-center mt-3'>Datos de equipos médicos</h2>
+          <h2 className='text-center mt-3'>Información de equipos médicos</h2>
         <Routes>
+        <Route path="/" element={ <Home /> }/>
           <Route path="/equipos" element={ <Show /> }/>
           <Route path="/create" element={ <Create /> }/>
           <Route path="/edit/:equipmentId" element={ <Edit /> }/>
