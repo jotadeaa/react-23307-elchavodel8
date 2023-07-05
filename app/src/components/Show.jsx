@@ -1,46 +1,59 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { Link, useLocation, useParams } from "react-router-dom";
+import { collection, getDocs, deleteDoc, doc} from "firebase/firestore";
 import { db } from "../firebaseConfig/firebase";
 import { Button, Table } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { Buscador } from "./Buscador";
 import { Loading } from "./Loading";
 
-export const Show = () => {
-  // (fer) utilizamos el hook useLocation para tomar lo que viene por params del buscador
-    const useQuery = () => {
-       return new URLSearchParams(useLocation().search);
-        const query = useQuery()
-        const search = query.get("search");
-    }
- 
-    // Configuro los hooks
+export const Show = () => { 
     const [equipments, setEquipments] = useState([]);
-    // Obtengo los documentos de la db de firestore
     const equipmentCollection = collection(db, "medicalSupplies");
+    const [page, setPage] = useState(1);
+    const [maxPages, setMaxPages] = useState(0);
+
     // Función para mostrar los docs
-    const getEquipments = async () => {
+    const getEquipments = async (pagina) => {
         const data = await getDocs(equipmentCollection);
-        setEquipments(
-            data.docs.map(doc => ({
-            ...doc.data(),
-                id: doc.id
-            })));
+        const datosTotales = [...data.docs.map(doc => ({
+          ...doc.data(),
+              id: doc.id
+          }))];
+        const equiposMedicosPaginado = [];
+        for (let i = 0; i < datosTotales.length; i++){
+          if (i % 10 === 0 && i != 0){
+            equiposMedicosPaginado.push({
+             page: i/10,
+             docs: i == 10 ? 
+             [...datosTotales.slice(undefined, i)] : [...datosTotales.slice(i, i+10)]
+            });
+          }          
+        }
+        setMaxPages(equiposMedicosPaginado.length);
+        for (let i = 0; i < equiposMedicosPaginado.length; i++){
+          if (equiposMedicosPaginado[i].page == pagina){
+            setEquipments(equiposMedicosPaginado[i].docs);
+            break;
+          }
+        }
     };
 
     // (fer) función para mostrar un sólo doc 
     const getEquipment = async (id) => {
       const equipment = await getDoc(await doc(db, "medicalSupplies", id));
-    };  
+    };
+    // (fer) utilizamos el hook useLocation para tomar lo que viene por params del buscador
+    const useQuery = () => {
+      return new URLSearchParams(useLocation().search);
+       const query = useQuery()
+       const search = query.get("search");
+   }
 
-    const navigate = useNavigate();
-    // Cuatro: crear función para eliminar un doc
     const removeEquipment = async (id) => {
         const equipmentDoc = doc(db, "medicalSupplies", id);
         return await deleteDoc(equipmentDoc);
     };
-    // Cinco: crear función para confirmar con Sweet Alert
     const confirmRemove = (id) => {
         Swal.fire({
             title: '¿Estás seguro?',
@@ -53,9 +66,7 @@ export const Show = () => {
             cancelButtonText: 'Cancelar'
           }).then((result) => {
             if (result.isConfirmed) {
-                // Llamo a la función removeEquipment
                 removeEquipment(id);
-                // Notificar que se ha eliminado
                 Swal.fire(
                 '¡Eliminado!',
                 'El equipo médico se ha eliminado.',
@@ -64,11 +75,11 @@ export const Show = () => {
             }
           })
     };
-    // Seis: utilizar useEffect
+
     useEffect(() => {
-        getEquipments();
-    }, []);
-    // Siete: devolver el estado de los docs
+        getEquipments(page);
+    }, [page]);
+
     if (equipments.length === 0){
         return (
             <>
@@ -166,6 +177,11 @@ export const Show = () => {
               ))}
             </tbody>
           </Table>
+          <div id="contenedorPaginacion" className="d-flex justify-content-between">
+            <Button className={page == 1 ? "btn primary disabled" : "primary"} onClick={() => page == 1 ? setPage(page) : setPage(page-1)}>Página anterior</Button>
+            <p className="fw-semibold">Página: {page}</p>
+            <Button className={page == maxPages ? "btn primary disabled" : "primary"} onClick={() => page <= maxPages ? setPage(page+1) : setPage(maxPages)}>Página Siguiente</Button>
+          </div>
         </div>
       </>
     ;
