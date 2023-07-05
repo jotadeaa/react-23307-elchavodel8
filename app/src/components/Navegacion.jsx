@@ -11,15 +11,10 @@ export const Navegacion = () => {
                 <Navbar.Brand href="/">
                     <img src={logoCaC1} alt="logo cac" width='75px' className='pt-2'/>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <NavDropdown title="Listas" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/equipos">Equipos</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
-                </Navbar.Collapse>
+                <Nav className="me-auto">
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/equipos">Equipos</Nav.Link>
+                </Nav>
             </Container>
         </Navbar>
     )
