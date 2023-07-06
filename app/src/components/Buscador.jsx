@@ -1,8 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Buscador.css"
 
 export const Buscador = () => {
     const navigate = useNavigate();    

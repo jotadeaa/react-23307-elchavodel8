@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import notFound from "../assets/notFound.jpg";
 import { Loading } from "./Loading";
 import { Buscador } from "./Buscador";
+import Swal from "sweetalert2";
 
 export const Equip = () => {
     const { nombre } = useParams();
@@ -33,6 +34,35 @@ export const Equip = () => {
     useEffect(() => {
         getEquipments(nombre);
     }, [nombre]);
+
+    /* Porción de código heredado de Show.jsx */
+    const removeEquipment = async (id) => {
+        const equipmentDoc = doc(db, "medicalSupplies", id);
+        return await deleteDoc(equipmentDoc);
+    };
+    const confirmRemove = (id) => {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡Esta acción no se puede deshacer!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Eliminar',
+            cancelButtonText: 'Cancelar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                removeEquipment(id);
+                Swal.fire(
+                '¡Eliminado!',
+                'El equipo médico se ha eliminado.',
+                'success'
+              ).then(() => {location.reload()});              
+            }
+          })
+    };
+    /* ------------------------ */
+
 
     if (equipments.length === 0 && !sinElementos){
         return (
@@ -79,7 +109,9 @@ export const Equip = () => {
                             <td className="text-center">{equipment.modelo}</td>
                             <td className="text-center">{equipment.estado}</td>
                             <td className="text-center">{equipment.cantidad}</td>
-                            <td className="text-center">{`${equipment.antiguedad} año(s)`}</td>
+                            <td className="text-center">{equipment.antiguedad === 0 ?
+                            `Nuevo` : (equipment.antiguedad === 1 ? `${equipment.antiguedad} año` :
+                            `${equipment.antiguedad} años`)}</td>
                             <td>
                             <div className="d-flex justify-content-center gap-2">
                                 <Link to={`/edit/${equipment.id}`}>

@@ -1,5 +1,5 @@
 header{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/bg-react.jpg');
+  background-image: url('./assets/bg-react.jpg');
   height: 35vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -17,6 +17,12 @@ main{
   transform: translate(-50%, -50%);
   color: white;
 }
+#mainH2{
+  border-style: solid;
+  border-color: #5e6670;
+  border-radius: 8px;
+  padding: 5px;
+}
 .txtFooterCaC{
   transition: all 0.5s;
 }
@@ -25,10 +31,54 @@ main{
 }
 footer{
   width: 100%;
-  height: 3.3vw;
+  height: 7vh;
+  padding-top: 0.5vh;
   justify-content: space-between;
   padding-left: 1vw;
   padding-right: 1vw;
+}
+#div-row2-maingrid{
+  background-color: #353a40;
+}
+#imgGridMain{
+  width: 60rem;
+  height: 25rem;
+}
+
+/* Cards Home */
+#cardsCasas > .card{
+  width: 25rem;
+}
+.card-img-container{
+  display: inline-block;
+  overflow: hidden;
+}
+.card-img-container > img{
+  display: block;
+  transition: all .45s;
+}
+.card-img-container > img:hover{
+  transform: scale(1.15);
+}
+.card-img-top{
+  width: 25rem;
+  height: 20rem;
+}
+
+#botonTarjetas{
+  background-color: #005bb1;
+  color: white;
+  font-weight: 500;
+  padding-left: 3vw;
+  margin-right: 12vw;
+  border-radius: 4px;
+}
+#botonTarjetas:hover{
+  background-color: #227dd1!important;
+}
+.text-green{
+  color: #7db90e;
+  font-size: 17px;
 }
 
 /* Show */
@@ -58,4 +108,40 @@ footer{
   display: flex;
   align-items:center;
   justify-content: center;
+}
+
+/* Buscador */
+.buscadorContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.buscadorBox {
+  position: relative;;
+  top: 10px;
+}
+
+.buscadorButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  height: 100%;
+  border: none;
+  background: none;
+}
+
+.buscadorInput{
+  height: 35px;
+  border-radius: 10px;
+  padding:  5px 30px 5px 10px;
+}
+
+/* Navegacion */
+#containerNavButtons > a{
+  border-radius: 8px;
+}
+#containerNavButtons > a:hover{
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
 }
