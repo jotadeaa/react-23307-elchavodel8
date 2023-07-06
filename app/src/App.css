@@ -17,6 +17,12 @@ main{
   transform: translate(-50%, -50%);
   color: white;
 }
+#mainH2{
+  border-style: solid;
+  border-color: #5e6670;
+  border-radius: 8px;
+  padding: 5px;
+}
 .txtFooterCaC{
   transition: all 0.5s;
 }
@@ -30,6 +36,49 @@ footer{
   justify-content: space-between;
   padding-left: 1vw;
   padding-right: 1vw;
+}
+#div-row2-maingrid{
+  background-color: #353a40;
+}
+#imgGridMain{
+  width: 60rem;
+  height: 25rem;
+}
+
+/* Cards Home */
+#cardsCasas > .card{
+  width: 25rem;
+}
+.card-img-container{
+  display: inline-block;
+  overflow: hidden;
+}
+.card-img-container > img{
+  display: block;
+  transition: all .45s;
+}
+.card-img-container > img:hover{
+  transform: scale(1.15);
+}
+.card-img-top{
+  width: 25rem;
+  height: 20rem;
+}
+
+#botonTarjetas{
+  background-color: #005bb1;
+  color: white;
+  font-weight: 500;
+  padding-left: 3vw;
+  margin-right: 12vw;
+  border-radius: 4px;
+}
+#botonTarjetas:hover{
+  background-color: #227dd1!important;
+}
+.text-green{
+  color: #7db90e;
+  font-size: 17px;
 }
 
 /* Show */
@@ -86,4 +135,13 @@ footer{
   height: 35px;
   border-radius: 10px;
   padding:  5px 30px 5px 10px;
+}
+
+/* Navegacion */
+#containerNavButtons > a{
+  border-radius: 8px;
+}
+#containerNavButtons > a:hover{
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
 }

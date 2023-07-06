@@ -20,9 +20,11 @@ function App() {
           </article>
         </header>
         <main>
-          <h2 className='text-center mt-3'>Información de equipos médicos</h2>
+          <div className='d-flex justify-content-center '>
+            <h2 className='mt-2 fs-2 fw-lighter' id='mainH2'>Proyecto CRUD con React & Firestore</h2>
+          </div>
         <Routes>
-        <Route path="/" element={ <Home /> }/>
+          <Route path="/" element={ <Home /> }/>
           <Route path="/equipos" element={ <Show /> }/>
           <Route path="/create" element={ <Create /> }/>
           <Route path="/edit/:equipmentId" element={ <Edit /> }/>

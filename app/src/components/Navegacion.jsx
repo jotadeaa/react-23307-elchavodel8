@@ -8,7 +8,7 @@ export const Navegacion = () => {
                 <Navbar.Brand href="/">
                     <img src={logoCaC1} alt="logo cac" width='75px' className='pt-2'/>
                 </Navbar.Brand>
-                <Nav className="me-auto">
+                <Nav className="me-auto" id='containerNavButtons'>
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/equipos">Equipos</Nav.Link>
                 </Nav>
