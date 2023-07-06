@@ -20,8 +20,7 @@ export const Buscador = () => {
                     value={searchText}
                     onChange={(e)=>setSearchText(e.target.value)}
                 />
-                <button type="submit"
-                    className="buscadorButton"><FaSearch /></button>
+                <button type="submit" className="buscadorButton"><FaSearch /></button>
             </div>
         </form>
     )
