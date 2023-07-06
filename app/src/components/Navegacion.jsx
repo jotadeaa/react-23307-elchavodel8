@@ -1,4 +1,5 @@
-import {Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import logoCaC1 from '../assets/logoCaC1.png';
 
 export const Navegacion = () => {
@@ -8,10 +9,14 @@ export const Navegacion = () => {
                 <Navbar.Brand href="/">
                     <img src={logoCaC1} alt="logo cac" width='75px' className='pt-2'/>
                 </Navbar.Brand>
-                <Nav className="me-auto" id='containerNavButtons'>
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/equipos">Equipos</Nav.Link>
-                </Nav>
+                <nav className="me-auto" id='containerNavButtons'>
+                    <Link to={'/'}>
+                        <button type='button' className='btn'>Home</button>
+                    </Link>
+                    <Link to={'/equipos'}>
+                        <button type='button' className='btn'>Equipos</button>
+                    </Link>
+                </nav>
             </Container>
         </Navbar>
     )

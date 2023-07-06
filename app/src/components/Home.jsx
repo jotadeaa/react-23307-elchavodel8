@@ -31,7 +31,7 @@ export const Home = () => {
                                 </ul>
                                 <ul>
                                     <li>Lisandro Escalada</li>
-                                    <li>Maria Fernanda</li>
+                                    <li>Maria Fernanda Calzolari</li>
                                     <li>Nicolas Díaz</li>
                                     <li>Pedro Palavecino</li>
                                     <li>Virginia Pérez</li>
