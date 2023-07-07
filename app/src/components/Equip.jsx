@@ -1,7 +1,7 @@
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useParams} from "react-router-dom";
 import { db } from "../firebaseConfig/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
 import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import notFound from "../assets/notFound.jpg";
@@ -57,19 +57,14 @@ export const Equip = () => {
                 '¡Eliminado!',
                 'El equipo médico se ha eliminado.',
                 'success'
-              ).then(() => {location.reload()});              
+              ).then(() => {location.reload()});
             }
           })
     };
     /* ------------------------ */
 
-
     if (equipments.length === 0 && !sinElementos){
-        return (
-            <>
-                <Loading />
-            </>
-        )
+        return (<><Loading /></>);
     }
     return sinElementos ? (
         // Si no encontró elementos el length va seguir siendo 0, por eso utilizo la bandera 'sinElementos'

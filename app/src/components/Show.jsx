@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
-import { collection, getDocs, deleteDoc, doc} from "firebase/firestore";
+import { Link } from "react-router-dom";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebaseConfig/firebase";
 import { Button, Table } from "react-bootstrap";
 import Swal from "sweetalert2";
@@ -71,7 +71,7 @@ export const Show = () => {
                 '¡Eliminado!',
                 'El equipo médico se ha eliminado.',
                 'success'
-              ).then(() => {location.reload()});              
+              ).then(() => {location.reload()});
             }
           })
     };
@@ -81,11 +81,7 @@ export const Show = () => {
     }, [page]);
 
     if (equipments.length === 0){
-        return (
-            <>
-              <Loading />
-            </>
-        )
+        return (<><Loading /></>);
     }
     return <>
         <div className="container">
