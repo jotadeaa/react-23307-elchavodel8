@@ -6,9 +6,13 @@ import { Button, Table } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { Buscador } from "./Buscador";
 import { Loading } from "./Loading";
+import { FaAngleDown } from 'react-icons/fa';
+import { FaAngleUp } from 'react-icons/fa';
 
 export const Show = () => { 
     const [equipments, setEquipments] = useState([]);
+    const [sortField, setSortField] = useState('');
+    const [sortOrder, setSortOrder] = useState(false);
     const equipmentCollection = collection(db, "medicalSupplies");
     const [page, setPage] = useState(1);
     const [maxPages, setMaxPages] = useState(0);
@@ -76,6 +80,69 @@ export const Show = () => {
           })
     };
 
+    const filterEquipments = (sortBy) => {
+      setSortField(sortBy)
+      setSortOrder(!sortOrder);
+
+      if (sortBy === "nombre") {
+        setEquipments(prevEquipments => (
+          prevEquipments.slice().sort((a, b) => (
+            sortOrder ? a.nombre.localeCompare(b.nombre) : b.nombre.localeCompare(a.nombre)
+          ))
+        ));
+        return
+      }
+
+      if (sortBy === "marca") {
+        setEquipments(prevEquipments => (
+          prevEquipments.slice().sort((a, b) => (
+            sortOrder ? a.marca.localeCompare(b.marca) : b.marca.localeCompare(a.marca)
+          ))
+        ));
+        return
+      }
+
+      if (sortBy === "modelo") {
+        setEquipments(prevEquipments => (
+          prevEquipments.slice().sort((a, b) => (
+            sortOrder ? a.modelo.localeCompare(b.modelo) : b.modelo.localeCompare(a.modelo)
+          ))
+        ));
+        return
+      }
+      
+      if (sortBy === "estado") {
+        setEquipments(prevEquipments => (
+          prevEquipments.slice().sort((a, b) => (
+            sortOrder ? a.estado.localeCompare(b.estado) : b.estado.localeCompare(a.estado)
+          ))
+        ));
+        return
+      }
+
+      if (sortBy === "cantidad") {
+        setEquipments(prevEquipments => (
+          prevEquipments.slice().sort((a, b) => (
+            sortOrder ? a.cantidad - b.cantidad : b.cantidad - a.cantidad
+          ))
+        ));
+        return
+      }
+
+      if (sortBy === "antiguedad") {
+        setEquipments(prevEquipments => (
+          prevEquipments.slice().sort((a, b) => (
+            sortOrder ? a.antiguedad - b.antiguedad : b.antiguedad - a.antiguedad
+          ))
+        ));
+        return
+      }
+    };
+
+    const Sorter = () => {
+      return sortOrder ? <FaAngleDown /> : <FaAngleUp />
+    };
+
     useEffect(() => {
         getEquipments(page);
     }, [page]);
@@ -106,12 +173,12 @@ export const Show = () => {
           <Table bordered hover responsive id="tablaEquipamentos">
             <thead>
               <tr>
-                <th>Nombre</th>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Estado</th>
-                <th>Cantidad</th>
-                <th>Antigüedad</th>
+                <th><a onClick={() => filterEquipments("nombre")}>Nombre { sortField === "nombre" ? Sorter() : <></> }</a></th>
+                <th><a onClick={() => filterEquipments("marca")}>Marca { sortField === "marca" ? Sorter() : <></> }</a></th>
+                <th><a onClick={() => filterEquipments("modelo")}>Modelo { sortField === "modelo" ? Sorter() : <></> }</a></th>
+                <th><a onClick={() => filterEquipments("estado")}>Estado {  sortField === "estado" ? Sorter() : <></> }</a></th>
+                <th><a onClick={() => filterEquipments("cantidad")}>Cantidad { sortField === "cantidad" ? Sorter() : <></> }</a></th>
+                <th><a onClick={() => filterEquipments("antiguedad")}>Antigüedad {  sortField === "antiguedad" ? Sorter() : <></> }</a></th>
                 <th>Acciones</th>
               </tr>
             </thead>
